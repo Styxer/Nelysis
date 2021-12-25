@@ -1,5 +1,9 @@
-﻿using Nelysis.Views;
+﻿using Nelysis.Services;
+using Nelysis.Services.Interfaces;
+using Nelysis.Views;
+using NetworkDashboard;
 using Prism.Ioc;
+using Prism.Modularity;
 using System.Windows;
 
 namespace Nelysis
@@ -16,7 +20,13 @@ namespace Nelysis
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IMessageService, MessageService>();
+            containerRegistry.RegisterSingleton<IFileService, FileService>();
+        }
 
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<NetworkDashboardModule>();
         }
     }
 }

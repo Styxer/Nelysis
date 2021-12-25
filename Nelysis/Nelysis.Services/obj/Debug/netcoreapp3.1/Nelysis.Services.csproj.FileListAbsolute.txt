@@ -1,0 +1,15 @@
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Services.deps.json
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Services.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Services.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Core.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Services.Interfaces.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Core.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\bin\Debug\netcoreapp3.1\Nelysis.Services.Interfaces.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.csproj.AssemblyReference.cache
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.AssemblyInfoInputs.cache
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.AssemblyInfo.cs
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.csproj.CoreCompileInputs.cache
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.csproj.CopyComplete
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Services\obj\Debug\netcoreapp3.1\Nelysis.Services.pdb

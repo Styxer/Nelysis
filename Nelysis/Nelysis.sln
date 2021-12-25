@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis.Services.Interfaces", "Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj", "{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkDashboard", "NetworkDashboard\NetworkDashboard.csproj", "{EC075E46-60AD-4C14-AD8C-205740A52A79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E9521196-E02F-43A7-82D0-A7A40216050A} = {2F7C6580-8C47-4514-86E0-11629554F353}
 		{6E86D06D-AB28-41B3-94F8-501ED4D99A8F} = {2F7C6580-8C47-4514-86E0-11629554F353}
+		{EC075E46-60AD-4C14-AD8C-205740A52A79} = {9CBD778D-EC8E-47EC-A1CC-2691F0F2B4BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA43FE62-A7E0-4B2C-B1CC-2A300BC30DA3}

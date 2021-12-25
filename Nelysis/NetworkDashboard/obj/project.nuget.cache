@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "+7Hg/odEWQwFnNI1QmwN5X7Cdnn17L0fRj4nsshoQjoPCWSUM5ahIR439vXUu6vAq/pEevKo2TTFCJ7f6p/MMQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\NetworkDashboard\\NetworkDashboard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
+  ],
+  "logs": []
+}

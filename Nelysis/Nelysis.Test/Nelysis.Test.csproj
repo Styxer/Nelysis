@@ -13,4 +13,9 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Nelysis.Services\Nelysis.Services.csproj" />
+  </ItemGroup>
+
 </Project>

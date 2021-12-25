@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="NetworkDashboard.Views.NetworkDashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NetworkDashboard.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" >
+
+    <UserControl.Resources>
+        <Style x:Key="CustomListViewItemStyle" 
+               TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="LightBlue"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="White"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Border BorderThickness="2">
+        <ListView ItemsSource="{Binding NetworkComponents}"
+                  AlternationCount="2"
+                  SelectionMode="Single"
+                  SelectedItem="{Binding SelectedItem}"
+                  ItemContainerStyle="{DynamicResource CustomListViewItemStyle}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <prism:InvokeCommandAction Command="{Binding ClickCmd}" CommandParameter="{Binding SelectedItem}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+           
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="IP Address"  DisplayMemberBinding="{Binding IPAddress}" />
+                    <GridViewColumn Header="MAC"  DisplayMemberBinding="{Binding MAC}" />
+                    <GridViewColumn Header="Component Type"  DisplayMemberBinding="{Binding ComponentType}" />
+                    <GridViewColumn Header="Hostname"  DisplayMemberBinding="{Binding Hostname}" />
+                    <GridViewColumn Header="Vendor"  DisplayMemberBinding="{Binding Vendor}" />
+                    <GridViewColumn Header="Total Day Throughput"  DisplayMemberBinding="{Binding TotalDayThroughput}" />
+                </GridView>
+            </ListView.View>
+            
+        </ListView>
+    </Border>
+</UserControl>
