@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj": {}
+    "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj": {
+    "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj",
-        "projectName": "Nelysis.Core",
-        "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj",
+        "projectUniqueName": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj",
+        "projectName": "Nelysis.Services.Interfaces",
+        "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj",
         "packagesPath": "C:\\Users\\ofir_roz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\obj\\",
+        "outputPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -45,12 +45,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "Prism.Wpf": {
-              "target": "Package",
-              "version": "[8.1.97, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
