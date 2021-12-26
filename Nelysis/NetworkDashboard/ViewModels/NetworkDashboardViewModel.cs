@@ -4,6 +4,7 @@ using Nelysis.Services.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,7 @@ namespace NetworkDashboard.ViewModels
     {
 
         private readonly IFileService _fileService;
+        private readonly IDialogService _dialogService;
 
         public DelegateCommand<NetworkComponents> ClickCmd { get; private set; }
 
@@ -34,22 +36,45 @@ namespace NetworkDashboard.ViewModels
             set { SetProperty(ref _selectedItem, value); }
         }
 
-        public NetworkDashboardViewModel(IFileService fileService)
+        public NetworkDashboardViewModel(IFileService fileService, IDialogService dialogService)
         {
 
             ClickCmd = new DelegateCommand<NetworkComponents>(Click);
 
 
             _fileService = fileService;
+            _dialogService = dialogService;
+
+
             _networkComponents = new ObservableCollection<NetworkComponents>
                 (_fileService.ProcessReadAsync(Paths.networkComponents)
                .OrderBy(x => x.TotalDayThroughput));
-
+            _dialogService = dialogService;
         }
 
         private void Click(NetworkComponents networkComponents)
         {
             //throw new NotImplementedException();
+            var message = "hello";
+            _dialogService.ShowDialog("NotificationDialog", new DialogParameters($"message={message}"), r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+
+                }
+                else
+                {
+
+                }
+                //if (r.Result == ButtonResult.None)
+                //   // Title = "Result is None";
+                //else if (r.Result == ButtonResult.OK)
+                //   // Title = "Result is OK";
+                //else if (r.Result == ButtonResult.Cancel)
+                //    Title = "Result is Cancel";
+                //else
+                //    Title = "I Don't know what you did!?";
+            });
         }
 
 

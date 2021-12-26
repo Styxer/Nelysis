@@ -1,4 +1,5 @@
-﻿using Nelysis.Services;
+﻿using Nelysis.Popup;
+using Nelysis.Services;
 using Nelysis.Services.Interfaces;
 using Nelysis.Views;
 using NetworkDashboard;
@@ -22,6 +23,8 @@ namespace Nelysis
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
             containerRegistry.RegisterSingleton<IFileService, FileService>();
+
+            containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

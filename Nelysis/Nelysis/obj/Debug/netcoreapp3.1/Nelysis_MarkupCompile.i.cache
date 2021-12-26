@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\App.xaml
-1-1644662438
+21311849997
 
-5-630297419
+7-2096954836
 2101383869554
-Views\MainWindow.xaml;
+Popup\NotificationDialog.xaml;Views\MainWindow.xaml;
 
-False
+True
 
