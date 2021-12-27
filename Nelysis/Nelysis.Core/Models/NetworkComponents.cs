@@ -17,7 +17,7 @@ namespace Nelysis.Core.Models
         public string Vendor { get; set; }
         public string TotalDayThroughput { get; set; }
 
-        public static NetworkComponents Init(string[] data)
+        public static NetworkComponents Init(IList<string> data)
         {
             ComponentsTypes componentsType;
             Enum.TryParse<ComponentsTypes>(data[3], out componentsType);

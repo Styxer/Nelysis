@@ -4,7 +4,15 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:core="clr-namespace:Nelysis.Core;assembly=Nelysis.Core"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         Title="{Binding Title}" Height="350" Width="525" >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <prism:InvokeCommandAction Command="{Binding ClosingCmd}" CommandParameter="{Binding SelectedItem}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </Grid>

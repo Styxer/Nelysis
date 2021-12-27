@@ -46,9 +46,9 @@ namespace NetworkDashboard.ViewModels
             _fileService = fileService;
             _dialogService = dialogService;
 
-
+        
             _networkComponents = new ObservableCollection<NetworkComponents>
-                (_fileService.ProcessReadAsync(Paths.networkComponents)
+                (_fileService.ProcessReadAsync(Paths.NetworkComponentsPath)
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
         }

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nelysis.Core;
 using Nelysis.Services;
 using Nelysis.Services.Interfaces;
 
@@ -17,8 +18,7 @@ namespace Nelysis.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var result = _IFileService.ProcessReadAsync
-            (@"C:\Users\ofir_roz\Desktop\Nelysis_Task\Data\network_components.txt");
+            var result = _IFileService.ProcessReadAsync(Paths.NetworkComponentsPath);
 
             foreach (var item in result)
             {

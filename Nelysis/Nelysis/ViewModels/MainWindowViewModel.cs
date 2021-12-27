@@ -1,10 +1,15 @@
-﻿using Prism.Mvvm;
+﻿using Nelysis.Core.Models;
+using Prism.Commands;
+using Prism.Mvvm;
+using System;
 
 namespace Nelysis.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Prism Application";
+        public DelegateCommand ClosingCmd { get; private set; }
+
+        private string _title = "Nelysis Application";
         public string Title
         {
             get { return _title; }
@@ -13,7 +18,12 @@ namespace Nelysis.ViewModels
 
         public MainWindowViewModel()
         {
+            ClosingCmd = new DelegateCommand(ClosingExecute);
+        }
 
+        private void ClosingExecute()
+        {
+            //TODO: Delete temp folder?
         }
     }
 }
