@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Nelysis.Popup"
              mc:Ignorable="d" 
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:Nelysis.Core.Enums;assembly=Nelysis.Core"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -25,6 +27,14 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
+        <ObjectDataProvider x:Key="enumValues"
+                MethodName="GetValues"
+                 ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:ComponentsTypes"/>
+            </ObjectDataProvider.MethodParameters>
+
+        </ObjectDataProvider>
     </UserControl.Resources>
     
     <Grid x:Name="LayoutRoot" Margin="5">
@@ -58,7 +68,10 @@
              </StackPanel>
             <StackPanel Grid.Column="1">
                 <TextBlock Text="ComponentType:" />
-                <TextBox Text="{Binding NetworkComponents.ComponentType}" />
+                <ComboBox ItemsSource="{Binding Source={StaticResource enumValues}}"
+                          SelectedItem="{Binding NetworkComponents.ComponentType}"/>
+                <!--<TextBox Text="{Binding NetworkComponents.ComponentType}" />-->
+             
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <TextBlock Text="IPAddress:" />
