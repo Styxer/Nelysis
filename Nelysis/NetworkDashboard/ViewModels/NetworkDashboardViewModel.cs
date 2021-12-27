@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,8 +56,11 @@ namespace NetworkDashboard.ViewModels
         private void Click(NetworkComponents networkComponents)
         {
             //throw new NotImplementedException();
-            var message = "hello";
-            _dialogService.ShowDialog("NotificationDialog", new DialogParameters($"message={message}"), r =>
+            var dialogParameters = new DialogParameters
+            {
+               {"message", networkComponents}
+            };
+            _dialogService.ShowDialog("NotificationDialog", dialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {

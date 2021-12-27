@@ -7,4 +7,3 @@ C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Core\obj\Debug\ne
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Core\obj\Debug\netcoreapp3.1\Nelysis.Core.csproj.CoreCompileInputs.cache
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Core\obj\Debug\netcoreapp3.1\Nelysis.Core.dll
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Core\obj\Debug\netcoreapp3.1\Nelysis.Core.pdb
-C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis.Core\obj\Debug\netcoreapp3.1\Nelysis.Core.csproj.AssemblyReference.cache

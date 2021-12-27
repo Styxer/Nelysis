@@ -8,13 +8,80 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid x:Name="LayoutRoot" Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="*"/>         
         </Grid.RowDefinitions>
 
-        <TextBlock Text="{Binding Message}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" />
-        <Button Command="{Binding CloseDialogCommand}" CommandParameter="true" Content="OK" Width="75" Height="25" HorizontalAlignment="Right" Margin="0,10,0,0" Grid.Row="1" IsDefault="True" />
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="ID: "/>
+            <TextBlock Text="{Binding NetworkComponents.ID}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="MAC: " />
+            <TextBlock Text="{Binding NetworkComponents.MAC}"/>
+        </StackPanel>       
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Hostname:" />
+                <TextBox Text="{Binding NetworkComponents.Hostname}" />                 
+             </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="ComponentType:" />
+                <TextBox Text="{Binding NetworkComponents.ComponentType}" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="IPAddress:" />
+                <TextBox Text="{Binding NetworkComponents.IPAddress}" />
+            </StackPanel>
+
+          
+
+        </Grid>
+
+        <StackPanel HorizontalAlignment="Stretch"
+            Grid.Row="3"
+            Orientation="Horizontal">
+            <Button Command="{Binding CloseDialogCommand}" 
+                CommandParameter="true"
+                Content="OK"               
+                HorizontalAlignment="Left"           
+                IsDefault="True" />
+            <Button Command="{Binding CloseDialogCommand}" 
+                CommandParameter="false"
+                Content="Cancel"               
+                HorizontalAlignment="Right"           
+                 />
+        </StackPanel>
     </Grid>
 </UserControl>
