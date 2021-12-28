@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace NetworkDashboard.ViewModels
         private readonly IDialogService _dialogService;
 
         public DelegateCommand<NetworkComponents> ClickCmd { get; private set; }
+
+        public DelegateCommand<string> OrderByCmd { get; private set; }
 
         private ObservableCollection<NetworkComponents> _networkComponents;
         public ObservableCollection<NetworkComponents> NetworkComponents
@@ -40,7 +43,9 @@ namespace NetworkDashboard.ViewModels
         public NetworkDashboardViewModel(IFileService fileService, IDialogService dialogService)
         {
 
-            ClickCmd = new DelegateCommand<NetworkComponents>(Click);
+            ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);
+
+            OrderByCmd = new DelegateCommand<string>(OrderByExecute);
 
 
             _fileService = fileService;
@@ -53,7 +58,22 @@ namespace NetworkDashboard.ViewModels
             _dialogService = dialogService;
         }
 
-        private void Click(NetworkComponents networkComponents)
+        private void OrderByExecute(string headerName)
+        {
+            
+            //TOOD: NOT HARD CODED NAMES
+            if(headerName == "ID")
+            {
+                NetworkComponents = new ObservableCollection<NetworkComponents>(NetworkComponents.OrderBy(x => x.ID));
+            }
+            else if (headerName == "IP Address")
+            {
+                NetworkComponents = new ObservableCollection<NetworkComponents>(NetworkComponents.OrderBy(x => x.IPAddress));
+            }
+
+        }
+
+        private void ClickExecute(NetworkComponents networkComponents)
         {
             //throw new NotImplementedException();
             var dialogParameters = new DialogParameters

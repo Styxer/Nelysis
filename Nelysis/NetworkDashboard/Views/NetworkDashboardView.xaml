@@ -22,6 +22,10 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Command" Value="{Binding OrderByCmd}"/>
+            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self},Path=Content}"/>
+        </Style>
     </UserControl.Resources>
 
     <Border BorderThickness="2">
