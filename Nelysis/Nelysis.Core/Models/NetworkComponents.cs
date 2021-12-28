@@ -10,8 +10,7 @@ namespace Nelysis.Core.Models
     {
         public string ID { get; set; }
         public string IPAddress { get; set; }
-        public string MAC { get; set; }
-        //public int ID { get; set; }
+        public string MAC { get; set; }      
         public ComponentsTypes ComponentType { get; set; }
         public string Hostname { get; set; }
         public string Vendor { get; set; }
@@ -36,7 +35,12 @@ namespace Nelysis.Core.Models
             return networkComponents;
         }
 
-        
+        public override string ToString()
+        {
+            return $"{ID}|{IPAddress}|{MAC}|{((byte)ComponentType)}|{Hostname}|{Vendor}|{TotalDayThroughput}";
+        }
+
+
 
         public NetworkComponents()
         {

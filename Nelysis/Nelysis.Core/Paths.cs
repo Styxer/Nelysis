@@ -25,7 +25,7 @@ namespace Nelysis.Core
         {
             get => System.IO.Path.Combine(basePath, dataFolder,  networkComponents);
         }
-        public static string NetworkComponents
+        public static string NetworkComponentsFile
         {
             get => networkComponents;
         }

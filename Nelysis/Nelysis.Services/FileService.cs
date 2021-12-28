@@ -8,13 +8,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Shapes;
+using System.Windows.Documents;
+
 
 namespace Nelysis.Services
 {
+
+
+
+
     public class FileService : IFileService
     {
-        private static readonly int rowsInChuckSize = 10;
+        public static int RowsInChuckSize { get => 10; }
         IEnumerable<NetworkComponents> IFileService.ProcessReadAsync(string filePath)
         {
             return Task
@@ -22,9 +27,58 @@ namespace Nelysis.Services
              .GetAwaiter()
              .GetResult();
         }
-       
 
-        public  async Task<IEnumerable<NetworkComponents>> ProcessListAsync(string filePath)
+        async Task IFileService.ChainNetworkComponent()
+        {
+            // var inputFilePaths =   //Directory.GetFiles();
+            var inputFilePaths = new DirectoryInfo(Paths.TempDataFolder)
+                .GetFiles()
+                .OrderBy(x => x.CreationTime);
+            using (var outputStream = File.Create(Paths.NetworkComponentsPath))
+            {
+                foreach (var inputFilePath in inputFilePaths)
+                {
+                    using (var inputStream = File.OpenRead(inputFilePath.FullName))
+                    {                      
+                       await inputStream.CopyToAsync(outputStream);
+                    }
+                }
+            }
+        }
+
+
+        async Task IFileService.ModifyNetworkComponentTempFileAsync(NetworkComponents networkComponents)
+        {
+            int id = Convert.ToInt32(networkComponents.ID);
+            int from = id - (id % RowsInChuckSize) +1;
+            int to = from + RowsInChuckSize - 2;
+            var chunkName = $"{from}_{to}.txt";
+
+
+            var result = await ProcessListAsync(Path.Combine(Paths.TempDataFolder, chunkName));
+            result = result.Select(x => x.ID == networkComponents.ID ? networkComponents : x);
+
+
+
+            var items =    string.Join(Environment.NewLine, result);
+
+
+
+            await WriteCharacters(items, chunkName);
+        }
+
+        private void DelteFile(string path)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path); 
+            }
+        }
+
+        
+
+
+        private  async Task<IEnumerable<NetworkComponents>> ProcessListAsync(string filePath)
         {
 
             return await Task
@@ -34,7 +88,7 @@ namespace Nelysis.Services
                 .ToListAsync();
         }
 
-        private static async IAsyncEnumerable<NetworkComponents> ReadAllTextAsync(string filePath)
+        private static async IAsyncEnumerable<NetworkComponents> ReadAllTextAsync(string filePath, bool doSplit = true)
         {
             var sb = new StringBuilder();
             using (var fileStream = File.OpenRead(filePath))
@@ -45,21 +99,23 @@ namespace Nelysis.Services
                 while ((line = await streamReader.ReadLineAsync()) != null)
                 {
                     var splitted = line.Split('|');
-                    sb.AppendLine(line);
+                  
                     if (splitted.Length == 7)//TODO
                     {
-                        if (counter % rowsInChuckSize == 0)
+                        sb.AppendLine(line);
+                        if (doSplit)
                         {
-                            var chunkName = $"_{fromChunkNum}_{toChunkNum+1}.txt";
+                            if (counter % RowsInChuckSize == 0)
+                            {
+                                toChunkNum = toChunkNum == 9 ? toChunkNum + 1 : toChunkNum;//TODO: REMOVE THIS STUPID HACK
+                                var chunkName = $"{fromChunkNum}_{toChunkNum}.txt";
 
-                            await WriteCharacters(sb, chunkName)
-                                .ContinueWith(x => sb.Clear());
-                            fromChunkNum = counter;
+                                await WriteCharacters(sb.ToString(), chunkName)
+                                    .ContinueWith(x => sb.Clear());
+                                fromChunkNum = counter+1;
+                            } 
                         }
-                        else
-                        {
-
-                        }
+                       
                         yield return NetworkComponents.Init(splitted);
                     }
                     toChunkNum = counter++;
@@ -69,24 +125,19 @@ namespace Nelysis.Services
             }
         }
 
-        private static async Task WriteCharacters(StringBuilder items, string chunkName)
+        private static async Task WriteCharacters(string items, string chunkName)
         {
-            var path = System.IO.Path.Combine(Paths.TempDataFolder, chunkName);
-
-            if (!File.Exists(path))
+            var path = Path.Combine(Paths.TempDataFolder, chunkName);
+            
+            if (!Directory.Exists(Paths.TempDataFolder))
             {
-                if (!Directory.Exists(Paths.TempDataFolder))
-                {
-                    Directory.CreateDirectory(Paths.TempDataFolder);
-                }
-                using (var writer = new StreamWriter(path, append: false))
-                {
-                    await writer.WriteAsync(items.ToString());
-                } 
+                Directory.CreateDirectory(Paths.TempDataFolder);
             }
+            using (var writer = new StreamWriter(path, append: false))
+            {
+                await writer.WriteAsync(items);
+            } 
+            
         }
-
-
-
     }
 }

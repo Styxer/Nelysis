@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Nelysis.Services.Interfaces
 {
@@ -9,8 +10,13 @@ namespace Nelysis.Services.Interfaces
     {
 
         IEnumerable<NetworkComponents> ProcessReadAsync(string filePath);
+        static int  RowsInChuckSize { get;   }
 
-        
+        Task ModifyNetworkComponentTempFileAsync(NetworkComponents networkComponents);
+
+        Task ChainNetworkComponent();
+
+
     }
 }
 

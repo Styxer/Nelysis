@@ -50,10 +50,16 @@ namespace Nelysis.Popup
         {
             ButtonResult result = ButtonResult.None;
 
+           
+
             if (parameter == "true")
+            {
                 result = ButtonResult.OK;
+            }
             else if (parameter == "false")
+            {
                 result = ButtonResult.Cancel;
+            }
 
             RaiseRequestClose(new DialogResult(result));
         }
