@@ -10,7 +10,7 @@ namespace Nelysis.Popup
 {
     public class NotificationDialogViewModel : BindableBase, IDialogAware
     {
-        private readonly IFileService _fileService;
+        private readonly IFileService<NetworkComponents> _fileService;
 
         #region Commands
         private DelegateCommand<string> _closeDialogCommand;
@@ -40,7 +40,7 @@ namespace Nelysis.Popup
         #endregion
 
         #region Ctor
-        public NotificationDialogViewModel(IFileService fileService)
+        public NotificationDialogViewModel(IFileService<NetworkComponents> fileService)
         {
             _fileService = fileService;
         }

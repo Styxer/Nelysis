@@ -1,4 +1,5 @@
 ﻿using Events;
+using Nelysis.Core.Models;
 using Nelysis.Popup;
 using Nelysis.Services;
 using Nelysis.Services.Interfaces;
@@ -23,7 +24,8 @@ namespace Nelysis
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
-            containerRegistry.RegisterSingleton<IFileService, FileService>();
+            containerRegistry.RegisterSingleton<IFileService<NetworkComponents>, FileService<NetworkComponents>>();
+            containerRegistry.RegisterSingleton<IFileService<Event>, FileService<Event>>();
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
 

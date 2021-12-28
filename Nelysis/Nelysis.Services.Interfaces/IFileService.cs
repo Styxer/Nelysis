@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Nelysis.Services.Interfaces
 {
-    public interface IFileService
+    public interface IFileService<T>
     {
 
-        IEnumerable<NetworkComponents> ProcessReadAsync(string filePath);
+        IEnumerable<T> ProcessReadAsync(string filePath);
         static int  RowsInChuckSize { get;   }
 
-        Task ModifyNetworkComponentTempFileAsync(NetworkComponents networkComponents);
+        Task ModifyNetworkComponentTempFileAsync(T networkComponents);
 
         Task ChainNetworkComponent();
 

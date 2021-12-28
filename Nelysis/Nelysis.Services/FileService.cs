@@ -17,10 +17,10 @@ namespace Nelysis.Services
 
 
 
-    public class FileService : IFileService
+    public class FileService<T> : IFileService<T> where T : class, new() 
     {
         public static int RowsInChuckSize { get => 10; }
-        IEnumerable<NetworkComponents> IFileService.ProcessReadAsync(string filePath)
+        IEnumerable<T> IFileService<T>.ProcessReadAsync(string filePath)
         {
             return Task
              .Run(() => AsyncContext.Run(() => ProcessListAsync(filePath)))
@@ -28,13 +28,14 @@ namespace Nelysis.Services
              .GetResult();
         }
 
-        async Task IFileService.ChainNetworkComponent()
+        async Task IFileService<T>.ChainNetworkComponent()
         {
             // var inputFilePaths =   //Directory.GetFiles();
             var inputFilePaths = new DirectoryInfo(Paths.TempDataFolder)
                 .GetFiles()
                 .OrderBy(x => x.CreationTime);
-            using (var outputStream = File.Create(Paths.NetworkComponentsPath))
+            var path = typeof(T) == typeof(NetworkComponents) ? Paths.NetworkComponentsPath : Paths.Events;
+            using (var outputStream = File.Create(path))
             {
                 foreach (var inputFilePath in inputFilePaths)
                 {
@@ -45,18 +46,19 @@ namespace Nelysis.Services
                 }
             }
         }
-
-
-        async Task IFileService.ModifyNetworkComponentTempFileAsync(NetworkComponents networkComponents)
+     
+        async Task IFileService<T>.ModifyNetworkComponentTempFileAsync(T item)
         {
-            int id = Convert.ToInt32(networkComponents.ID);
+            var val = (BaseModel)Convert.ChangeType(item, typeof(BaseModel));
+
+            int id = Convert.ToInt32(val.ID);
             int from = id - (id % RowsInChuckSize) +1;
             int to = from + RowsInChuckSize - 2;
             var chunkName = $"{from}_{to}.txt";
 
 
-            var result = await ProcessListAsync(Path.Combine(Paths.TempDataFolder, chunkName));
-            result = result.Select(x => x.ID == networkComponents.ID ? networkComponents : x);
+            var result = await ProcessListAsync(Path.Combine(Paths.TempDataFolder, chunkName)) as IEnumerable<BaseModel>;
+            result = result.Select(x => x.ID == val.ID ? val : x);
 
 
 
@@ -78,7 +80,7 @@ namespace Nelysis.Services
         
 
 
-        private  async Task<IEnumerable<NetworkComponents>> ProcessListAsync(string filePath)
+        private  async Task<IEnumerable<T>> ProcessListAsync(string filePath)
         {
 
             return await Task
@@ -88,7 +90,7 @@ namespace Nelysis.Services
                 .ToListAsync();
         }
 
-        private static async IAsyncEnumerable<NetworkComponents> ReadAllTextAsync(string filePath, bool doSplit = true)
+        private static async IAsyncEnumerable<T> ReadAllTextAsync(string filePath, bool doSplit = true)
         {
             var sb = new StringBuilder();
             using (var fileStream = File.OpenRead(filePath))
@@ -100,7 +102,7 @@ namespace Nelysis.Services
                 {
                     var splitted = line.Split('|');
                   
-                    if (splitted.Length == 7)//TODO
+                   // if (splitted.Length == 7)//TODO
                     {
                         sb.AppendLine(line);
                         if (doSplit)
@@ -115,8 +117,10 @@ namespace Nelysis.Services
                                 fromChunkNum = counter+1;
                             } 
                         }
-                       
-                        yield return NetworkComponents.Init(splitted);
+
+                        yield return typeof(T) == typeof(NetworkComponents) ?
+                            (T)Convert.ChangeType(NetworkComponents.Init(splitted), typeof(T)) :
+                            (T)Convert.ChangeType(Event.Init(splitted), typeof(T));
                     }
                     toChunkNum = counter++;
                 }
@@ -139,5 +143,7 @@ namespace Nelysis.Services
             } 
             
         }
+
+     
     }
 }

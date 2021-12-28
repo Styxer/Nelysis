@@ -19,7 +19,7 @@ namespace NetworkDashboard.ViewModels
     public class NetworkDashboardViewModel : BindableBase
     {
 
-        private readonly IFileService _fileService;
+        private readonly IFileService<NetworkComponents> _fileService;
         private readonly IDialogService _dialogService;
 
         public DelegateCommand<NetworkComponents> ClickCmd { get; private set; }
@@ -40,7 +40,7 @@ namespace NetworkDashboard.ViewModels
             set { SetProperty(ref _selectedItem, value); }
         }
 
-        public NetworkDashboardViewModel(IFileService fileService, IDialogService dialogService)
+        public NetworkDashboardViewModel(IFileService<NetworkComponents> fileService, IDialogService dialogService)
         {
 
             ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);

@@ -11,11 +11,11 @@ namespace Nelysis.Test
     [TestClass]
     public class UnitTest1
     {
-        IFileService _IFileService;
+        IFileService<NetworkComponents> _IFileService;
 
         public UnitTest1()
         {
-            _IFileService = new FileService();
+            _IFileService = new FileService<NetworkComponents>();
         }
 
         [TestMethod]
