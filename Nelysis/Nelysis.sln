@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis", "Nelysis\Nelysis.csproj", "{0DFB5000-DB9A-41DF-A6C6-BFDD6FBE8DE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nelysis", "Nelysis\Nelysis.csproj", "{0DFB5000-DB9A-41DF-A6C6-BFDD6FBE8DE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis.Core", "Nelysis.Core\Nelysis.Core.csproj", "{F3CE777A-BBEC-4DBB-AAAE-55129A7C78FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nelysis.Core", "Nelysis.Core\Nelysis.Core.csproj", "{F3CE777A-BBEC-4DBB-AAAE-55129A7C78FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis.Services", "Nelysis.Services\Nelysis.Services.csproj", "{E9521196-E02F-43A7-82D0-A7A40216050A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nelysis.Services", "Nelysis.Services\Nelysis.Services.csproj", "{E9521196-E02F-43A7-82D0-A7A40216050A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis.Test", "Nelysis.Test\Nelysis.Test.csproj", "{94C6D4A6-C3DB-4F38-B055-24913144ACA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nelysis.Test", "Nelysis.Test\Nelysis.Test.csproj", "{94C6D4A6-C3DB-4F38-B055-24913144ACA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{9CBD778D-EC8E-47EC-A1CC-2691F0F2B4BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2F7C6580-8C47-4514-86E0-11629554F353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nelysis.Services.Interfaces", "Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj", "{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nelysis.Services.Interfaces", "Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj", "{6E86D06D-AB28-41B3-94F8-501ED4D99A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkDashboard", "NetworkDashboard\NetworkDashboard.csproj", "{EC075E46-60AD-4C14-AD8C-205740A52A79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkDashboard", "NetworkDashboard\NetworkDashboard.csproj", "{EC075E46-60AD-4C14-AD8C-205740A52A79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events", "Events\Events.csproj", "{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC075E46-60AD-4C14-AD8C-205740A52A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{E9521196-E02F-43A7-82D0-A7A40216050A} = {2F7C6580-8C47-4514-86E0-11629554F353}
 		{6E86D06D-AB28-41B3-94F8-501ED4D99A8F} = {2F7C6580-8C47-4514-86E0-11629554F353}
 		{EC075E46-60AD-4C14-AD8C-205740A52A79} = {9CBD778D-EC8E-47EC-A1CC-2691F0F2B4BF}
+		{3D92C0F3-7FD8-4171-A2A1-151DD6662BFC} = {9CBD778D-EC8E-47EC-A1CC-2691F0F2B4BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA43FE62-A7E0-4B2C-B1CC-2A300BC30DA3}

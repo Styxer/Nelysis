@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 
-11738907124
+2750538796
 
 3-1925942263
 1971121399746
-Views\NetworkDashboardView.xaml;
+Styles\ListViewItemStyle.xaml;Views\NetworkDashboardView.xaml;
 
 False
 

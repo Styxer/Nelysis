@@ -9,9 +9,13 @@
     <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Events\Events.csproj" />
     <ProjectReference Include="..\Nelysis.Core\Nelysis.Core.csproj" />
     <ProjectReference Include="..\Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj" />
     <ProjectReference Include="..\Nelysis.Services\Nelysis.Services.csproj" />
     <ProjectReference Include="..\NetworkDashboard\NetworkDashboard.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Styles\" />
   </ItemGroup>
 </Project>

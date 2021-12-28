@@ -14,6 +14,25 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                     Orientation="Vertical"
+                    HorizontalAlignment="Stretch">
+            <RadioButton Content="Components Types"
+                         Command="{Binding ChangeScreenCmd}" 
+                         CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=Content}"
+                         IsChecked="True"/>
+            <RadioButton Content="Events"
+                         Command="{Binding ChangeScreenCmd}"
+                         CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=Content}"/>
+        </StackPanel>
+                    
+
+        <ContentControl Grid.Row="1"
+            prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
     </Grid>
 </Window>

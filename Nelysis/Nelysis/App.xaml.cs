@@ -1,4 +1,5 @@
-﻿using Nelysis.Popup;
+﻿using Events;
+using Nelysis.Popup;
 using Nelysis.Services;
 using Nelysis.Services.Interfaces;
 using Nelysis.Views;
@@ -25,10 +26,12 @@ namespace Nelysis
             containerRegistry.RegisterSingleton<IFileService, FileService>();
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
+
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
+            moduleCatalog.AddModule<EventsViewModule>();
             moduleCatalog.AddModule<NetworkDashboardModule>();
         }
     }

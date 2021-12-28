@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "tpm0QW1WQV003eTLc3X2brM7hu7W7h0LJqo8rExhzN5pqX3dQdckqsKDL0DEIgXg/5whQoBYiwIj45eJT2IFag==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Events\\Events.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512"
+  ],
+  "logs": []
+}

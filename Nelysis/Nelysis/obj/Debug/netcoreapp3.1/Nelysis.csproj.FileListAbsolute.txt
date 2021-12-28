@@ -44,3 +44,5 @@ C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcore
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\obj\Debug\netcoreapp3.1\Popup\NotificationDialog.g.cs
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\obj\Debug\netcoreapp3.1\Nelysis_MarkupCompile.lref
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\obj\Debug\netcoreapp3.1\Popup\NotificationDialog.baml
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\Events.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\Events.pdb

@@ -306,6 +306,23 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "Events/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Nelysis.Core": "1.0.0",
+          "Prism.Wpf": "8.1.97"
+        },
+        "compile": {
+          "bin/placeholder/Events.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Events.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "Nelysis.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -1281,6 +1298,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "Events/1.0.0": {
+      "type": "project",
+      "path": "../Events/Events.csproj",
+      "msbuildProject": "../Events/Events.csproj"
+    },
     "Nelysis.Core/1.0.0": {
       "type": "project",
       "path": "../Nelysis.Core/Nelysis.Core.csproj",
@@ -1304,6 +1326,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Events >= 1.0.0",
       "Nelysis.Core >= 1.0.0",
       "Nelysis.Services >= 1.0.0",
       "Nelysis.Services.Interfaces >= 1.0.0",
@@ -1346,6 +1369,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Events\\Events.csproj": {
+              "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Events\\Events.csproj"
+            },
             "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj": {
               "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj"
             },
