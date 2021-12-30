@@ -6,10 +6,8 @@ using System.Text;
 namespace Nelysis.Core.Models
 {
     public class Event : BaseModel
-    {
+    {      
        
-        public string SourceIP { get; set; }
-        public string SourceMAC { get; set; }
         public DateTime TimeAction { get; set; }
         public string Description { get; set; }
 
@@ -18,8 +16,8 @@ namespace Nelysis.Core.Models
             var @event = new Event()
             {
                 ID = data[0],
-                SourceIP = data[1],
-                SourceMAC = data[2],
+                IPAddress = data[1],
+                MAC = data[2],
                 TimeAction = DateTime.Parse(data[3]),
                 Description = data[4],
 

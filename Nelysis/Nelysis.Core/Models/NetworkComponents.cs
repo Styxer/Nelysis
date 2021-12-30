@@ -10,8 +10,7 @@ namespace Nelysis.Core.Models
 
     {
        
-        public string IPAddress { get; set; }
-        public string MAC { get; set; }      
+            
         public ComponentsTypes ComponentType { get; set; }
         public string Hostname { get; set; }
         public string Vendor { get; set; }

@@ -9,6 +9,8 @@
       "Events/1.0.0": {
         "dependencies": {
           "Nelysis.Core": "1.0.0",
+          "Nelysis.Services.Interfaces": "1.0.0",
+          "NetworkDashboard": "1.0.0",
           "Prism.Wpf": "8.1.97"
         },
         "runtime": {
@@ -50,6 +52,24 @@
         "runtime": {
           "Nelysis.Core.dll": {}
         }
+      },
+      "Nelysis.Services.Interfaces/1.0.0": {
+        "dependencies": {
+          "Nelysis.Core": "1.0.0"
+        },
+        "runtime": {
+          "Nelysis.Services.Interfaces.dll": {}
+        }
+      },
+      "NetworkDashboard/1.0.0": {
+        "dependencies": {
+          "Nelysis.Core": "1.0.0",
+          "Nelysis.Services.Interfaces": "1.0.0",
+          "Prism.Wpf": "8.1.97"
+        },
+        "runtime": {
+          "NetworkDashboard.dll": {}
+        }
       }
     }
   },
@@ -81,6 +101,16 @@
       "hashPath": "prism.wpf.8.1.97.nupkg.sha512"
     },
     "Nelysis.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nelysis.Services.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetworkDashboard/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

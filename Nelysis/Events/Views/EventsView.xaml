@@ -4,11 +4,53 @@
              xmlns:local="clr-namespace:Events.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    <Grid>
-        <TextBlock Text="Hello World" FontSize="200" Background="Red" />
-    </Grid>
+
+    <UserControl.Resources>
+        <Style x:Key="CustomListViewItemStyle" 
+               TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="LightBlue"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="White"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Command" Value="{Binding OrderByCmd}"/>
+            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self},Path=Content}"/>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="2" >
+        <ListView ItemsSource="{Binding Events}"
+                  AlternationCount="2"
+                  SelectionMode="Single"
+                  SelectedItem="{Binding SelectedItem}"
+                  ItemContainerStyle="{DynamicResource CustomListViewItemStyle}">
+
+            <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <prism:InvokeCommandAction Command="{Binding ClickCmd}" CommandParameter="{Binding SelectedItem}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="Source IP|"  DisplayMemberBinding="{Binding IPAddress}" />
+                    <GridViewColumn Header="Source MAC"  DisplayMemberBinding="{Binding MAC}" />
+                    <GridViewColumn Header="Time Action"  DisplayMemberBinding="{Binding TimeAction}" />
+                    <GridViewColumn Header="Description"  DisplayMemberBinding="{Binding Description}" />
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Border>
 </UserControl>

@@ -16,3 +16,7 @@ C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\obj\Debug\netcorea
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\obj\Debug\netcoreapp3.1\Events.csproj.CopyComplete
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\obj\Debug\netcoreapp3.1\Events.dll
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\obj\Debug\netcoreapp3.1\Events.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\bin\Debug\netcoreapp3.1\Nelysis.Services.Interfaces.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\bin\Debug\netcoreapp3.1\NetworkDashboard.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\bin\Debug\netcoreapp3.1\Nelysis.Services.Interfaces.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Events\bin\Debug\netcoreapp3.1\NetworkDashboard.pdb

@@ -34,7 +34,7 @@ namespace Nelysis.Services
             var inputFilePaths = new DirectoryInfo(Paths.TempDataFolder)
                 .GetFiles()
                 .OrderBy(x => x.CreationTime);
-            var path = typeof(T) == typeof(NetworkComponents) ? Paths.NetworkComponentsPath : Paths.Events;
+            var path = typeof(T) == typeof(NetworkComponents) ? Paths.NetworkComponentsPath : Paths.EventsPath;
             using (var outputStream = File.Create(path))
             {
                 foreach (var inputFilePath in inputFilePaths)

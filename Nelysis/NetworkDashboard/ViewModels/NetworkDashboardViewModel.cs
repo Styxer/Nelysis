@@ -56,6 +56,8 @@ namespace NetworkDashboard.ViewModels
                 (_fileService.ProcessReadAsync(Paths.NetworkComponentsPath)
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
+
+          
         }
 
         private void OrderByExecute(string headerName)

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Events</AssemblyName>
+    <AssemblyName>NetworkDashboard</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
@@ -10,6 +10,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Nelysis.Core\Nelysis.Core.csproj" />
     <ProjectReference Include="..\Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\NetworkDashboard\NetworkDashboard.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\EventsView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

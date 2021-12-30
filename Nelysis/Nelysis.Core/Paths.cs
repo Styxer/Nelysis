@@ -30,7 +30,7 @@ namespace Nelysis.Core
             get => networkComponents;
         }
 
-        public static string Events
+        public static string EventsPath
         {
             get => System.IO.Path.Combine(basePath, dataFolder, events);
         }
