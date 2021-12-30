@@ -10,6 +10,7 @@ namespace Nelysis.Core.Models
        
         public DateTime TimeAction { get; set; }
         public string Description { get; set; }
+        public bool IsComponentTypeExternal { get; set; }
 
         public static Event Init(string[] data)
         {

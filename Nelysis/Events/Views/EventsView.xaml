@@ -28,6 +28,7 @@
         </Style>
     </UserControl.Resources>
     <Border BorderThickness="2" >
+
         <ListView ItemsSource="{Binding Events}"
                   AlternationCount="2"
                   SelectionMode="Single"
@@ -42,6 +43,13 @@
 
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="External Event">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsComponentTypeExternal}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" />
                     <GridViewColumn Header="Source IP|"  DisplayMemberBinding="{Binding IPAddress}" />
                     <GridViewColumn Header="Source MAC"  DisplayMemberBinding="{Binding MAC}" />

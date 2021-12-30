@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace NetworkDashboard.ViewModels
 {
-    public class NetworkDashboardViewModel : BindableBase
+    public class NetworkDashboardViewModel : BindableBase, INavigationAware
     {
 
         private readonly IFileService<NetworkComponents> _fileService;
@@ -58,15 +58,17 @@ namespace NetworkDashboard.ViewModels
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
 
-            foreach (var networkComponent in _networkComponents)
-            {
-                var targetEvents = vm.Events.Where(x => x.IPAddress == networkComponent.IPAddress && x.MAC == networkComponent.MAC);
-                foreach (var item in targetEvents)
-                {
-                    networkComponent.HasRelatedEvent = true;
-                }
-            }
           
+
+            Collections.networkComponents = _networkComponents;
+
+            _networkComponents.CollectionChanged += _networkComponents_CollectionChanged;
+          
+        }
+
+        private void _networkComponents_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Collections.networkComponents = _networkComponents;
         }
 
         private void OrderByExecute(string headerName)
@@ -110,6 +112,29 @@ namespace NetworkDashboard.ViewModels
                 //else
                 //    Title = "I Don't know what you did!?";
             });
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            //TODO: BETTER SOLUTION
+            foreach (var networkComponent in _networkComponents)
+            {
+                var targetEvents = Collections.events.Where(x => x.IPAddress == networkComponent.IPAddress && x.MAC == networkComponent.MAC);
+                foreach (var item in targetEvents)
+                {
+                    networkComponent.HasRelatedEvent = true;
+                }
+            }
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            
         }
 
 

@@ -17,7 +17,7 @@ namespace Events
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, "EventsView");
+          //  _regionManager.RequestNavigate(RegionNames.ContentRegion, "EventsView");
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

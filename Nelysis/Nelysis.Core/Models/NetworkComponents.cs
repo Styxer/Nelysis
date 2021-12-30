@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Windows.Controls;
 
 namespace Nelysis.Core.Models
 {
@@ -16,20 +17,24 @@ namespace Nelysis.Core.Models
         public string Vendor { get; set; }
         public string TotalDayThroughput { get; set; }
         public bool HasRelatedEvent { get; set; }
+   
 
         public static NetworkComponents Init(IList<string> data)
         {
-            ComponentsTypes componentsType;
-            Enum.TryParse<ComponentsTypes>(data[3], out componentsType);
+            //ComponentsTypes componentsType;
+            var isEnum = Enum.TryParse<ComponentsTypes>(data[3], out ComponentsTypes componentsType) && !int.TryParse(componentsType.ToString(), out _);
+
+
             var networkComponents = new NetworkComponents()
             {
                 ID = data[0],
                 IPAddress = data[1],
                 MAC = data[2],
-                ComponentType = componentsType,
+                ComponentType = isEnum ? componentsType : ComponentsTypes.None,
                 Hostname = data[4],
                 Vendor = data[5],
                 TotalDayThroughput = data[6],
+           
 
             };
 

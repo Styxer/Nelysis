@@ -6,6 +6,7 @@ namespace Nelysis.Core.Enums
 {
     public enum ComponentsTypes
     {
+        None = -1,
         Unclassified  = 0,
         VideoEdgeDevice = 1,
         VideoManagement= 2,
