@@ -43,6 +43,13 @@
            
             <ListView.View>
                 <GridView >
+                    <GridViewColumn Header="have related event">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding HasRelatedEvent}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" />
                     <GridViewColumn Header="IP Address"  DisplayMemberBinding="{Binding IPAddress}" />
                     <GridViewColumn Header="MAC"  DisplayMemberBinding="{Binding MAC}" />

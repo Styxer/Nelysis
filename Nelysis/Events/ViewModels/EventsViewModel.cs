@@ -1,7 +1,7 @@
 ﻿using Nelysis.Core;
 using Nelysis.Core.Models;
 using Nelysis.Services.Interfaces;
-using NetworkDashboard.ViewModels;
+
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -42,16 +42,18 @@ namespace Events.ViewModels
         #endregion
 
         #region Ctor
-        public EventsViewModel(IFileService<Event> fileService, NetworkDashboardViewModel vm)
+        public EventsViewModel(IFileService<Event> fileService)
         {
             _fileService = fileService;
 
-            // ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);
+           // ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);
             OrderByCmd = new DelegateCommand<string>(OrderByExecute);
 
             _events = new ObservableCollection<Event>
             (_fileService.ProcessReadAsync(Paths.EventsPath)
            .OrderBy(x => x.TimeAction));
+
+
         }
 
         private void OrderByExecute(string headerName)

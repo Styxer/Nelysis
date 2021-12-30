@@ -39,9 +39,6 @@
               },
               "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj"
-              },
-              "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\NetworkDashboard\\NetworkDashboard.csproj": {
-                "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\NetworkDashboard\\NetworkDashboard.csproj"
               }
             }
           }
@@ -409,6 +406,9 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Events\\Events.csproj": {
+                "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Events\\Events.csproj"
+              },
               "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj": {
                 "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Core\\Nelysis.Core.csproj"
               },

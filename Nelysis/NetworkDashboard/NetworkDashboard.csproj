@@ -8,6 +8,7 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Events\Events.csproj" />
     <ProjectReference Include="..\Nelysis.Core\Nelysis.Core.csproj" />
     <ProjectReference Include="..\Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj" />
   </ItemGroup>

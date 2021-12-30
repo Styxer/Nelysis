@@ -15,6 +15,7 @@ namespace Nelysis.Core.Models
         public string Hostname { get; set; }
         public string Vendor { get; set; }
         public string TotalDayThroughput { get; set; }
+        public bool HasRelatedEvent { get; set; }
 
         public static NetworkComponents Init(IList<string> data)
         {

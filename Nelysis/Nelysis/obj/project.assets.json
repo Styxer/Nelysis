@@ -312,7 +312,6 @@
         "dependencies": {
           "Nelysis.Core": "1.0.0",
           "Nelysis.Services.Interfaces": "1.0.0",
-          "NetworkDashboard": "1.0.0",
           "Prism.Wpf": "8.1.97"
         },
         "compile": {
@@ -372,6 +371,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Events": "1.0.0",
           "Nelysis.Core": "1.0.0",
           "Nelysis.Services.Interfaces": "1.0.0",
           "Prism.Wpf": "8.1.97"

@@ -19,3 +19,5 @@ C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\bin\Debu
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\obj\Debug\netcoreapp3.1\Views\NetworkDashboardView.g.cs
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\obj\Debug\netcoreapp3.1\Views\NetworkDashboardView.baml
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\obj\Debug\netcoreapp3.1\Styles\ListViewItemStyle.baml
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\bin\Debug\netcoreapp3.1\Events.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\NetworkDashboard\bin\Debug\netcoreapp3.1\Events.pdb

@@ -1,4 +1,5 @@
-﻿using Nelysis.Core;
+﻿using Events.ViewModels;
+using Nelysis.Core;
 using Nelysis.Core.Models;
 using Nelysis.Services.Interfaces;
 using Prism.Commands;
@@ -40,7 +41,7 @@ namespace NetworkDashboard.ViewModels
             set { SetProperty(ref _selectedItem, value); }
         }
 
-        public NetworkDashboardViewModel(IFileService<NetworkComponents> fileService, IDialogService dialogService)
+        public NetworkDashboardViewModel(IFileService<NetworkComponents> fileService, IDialogService dialogService, EventsViewModel vm)
         {
 
             ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);
@@ -57,6 +58,14 @@ namespace NetworkDashboard.ViewModels
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
 
+            foreach (var networkComponent in _networkComponents)
+            {
+                var targetEvents = vm.Events.Where(x => x.IPAddress == networkComponent.IPAddress && x.MAC == networkComponent.MAC);
+                foreach (var item in targetEvents)
+                {
+                    networkComponent.HasRelatedEvent = true;
+                }
+            }
           
         }
 

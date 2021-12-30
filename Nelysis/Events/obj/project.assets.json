@@ -64,24 +64,6 @@
         "runtime": {
           "bin/placeholder/Nelysis.Services.Interfaces.dll": {}
         }
-      },
-      "NetworkDashboard/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Nelysis.Core": "1.0.0",
-          "Nelysis.Services.Interfaces": "1.0.0",
-          "Prism.Wpf": "8.1.97"
-        },
-        "compile": {
-          "bin/placeholder/NetworkDashboard.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/NetworkDashboard.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
       }
     }
   },
@@ -172,18 +154,12 @@
       "type": "project",
       "path": "../Nelysis.Services.Interfaces/Nelysis.Services.Interfaces.csproj",
       "msbuildProject": "../Nelysis.Services.Interfaces/Nelysis.Services.Interfaces.csproj"
-    },
-    "NetworkDashboard/1.0.0": {
-      "type": "project",
-      "path": "../NetworkDashboard/NetworkDashboard.csproj",
-      "msbuildProject": "../NetworkDashboard/NetworkDashboard.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Nelysis.Core >= 1.0.0",
       "Nelysis.Services.Interfaces >= 1.0.0",
-      "NetworkDashboard >= 1.0.0",
       "Prism.Wpf >= 8.1.97"
     ]
   },
@@ -227,9 +203,6 @@
             },
             "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj": {
               "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis.Services.Interfaces\\Nelysis.Services.Interfaces.csproj"
-            },
-            "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\NetworkDashboard\\NetworkDashboard.csproj": {
-              "projectPath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\NetworkDashboard\\NetworkDashboard.csproj"
             }
           }
         }

@@ -10,6 +10,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Nelysis.Core\Nelysis.Core.csproj" />
     <ProjectReference Include="..\Nelysis.Services.Interfaces\Nelysis.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\NetworkDashboard\NetworkDashboard.csproj" />
   </ItemGroup>
 </Project>
