@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jM2CBaXn3Krx5oSCLbly5gbrHuteqNEFGLWLceXeVZC+8dB5rm2rbSUBP2xGJS6RIqAQZlPX7z/Std/WXF6QWg==",
+  "dgSpecHash": "/oXffFh+BSUgvwtED14I4wAT/nC7Nwho0TMv4+t3AgNCo38axPV+GY2+/MlzFO3v4JM9U9m0qfp6Uh8PmWRsOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ofir_roz\\source\\repos\\Nelysis\\Nelysis\\Nelysis\\Nelysis\\Nelysis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ofir_roz\\.nuget\\packages\\dryioc.dll\\4.5.0\\dryioc.dll.4.5.0.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\livecharts.wpf.netcore3\\0.9.7\\livecharts.wpf.netcore3.0.9.7.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
@@ -21,6 +24,7 @@
     "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.dryioc\\8.0.0.1909\\prism.dryioc.8.0.0.1909.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
+    "C:\\Users\\ofir_roz\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.linq.async\\5.1.0\\system.linq.async.5.1.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
@@ -31,5 +35,26 @@
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\ofir_roz\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts.Wpf 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts.Wpf",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

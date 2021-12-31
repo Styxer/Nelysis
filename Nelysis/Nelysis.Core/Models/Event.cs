@@ -28,5 +28,10 @@ namespace Nelysis.Core.Models
 
 
         }
+
+        public Event()
+        {
+
+        }
     }
 }

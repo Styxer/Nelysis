@@ -46,3 +46,5 @@ C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\obj\Debug\netcore
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\obj\Debug\netcoreapp3.1\Popup\NotificationDialog.baml
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\Events.dll
 C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\Events.pdb
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\LiveCharts.dll
+C:\Users\ofir_roz\source\repos\Nelysis\Nelysis\Nelysis\Nelysis\bin\Debug\netcoreapp3.1\LiveCharts.Wpf.dll

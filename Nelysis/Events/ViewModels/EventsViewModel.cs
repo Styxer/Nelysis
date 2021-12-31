@@ -1,4 +1,6 @@
-﻿using Nelysis.Core;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using Nelysis.Core;
 using Nelysis.Core.Models;
 using Nelysis.Services.Interfaces;
 
@@ -11,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace Events.ViewModels
 {
@@ -40,6 +43,15 @@ namespace Events.ViewModels
             set { SetProperty(ref _selectedItem, value); }
         }
 
+        private SeriesCollection _seriesCollection;
+        public SeriesCollection SeriesCollection
+        {
+            get { return _seriesCollection; }
+            set { SetProperty(ref _seriesCollection, value); }
+        }
+
+     
+
         #endregion      
 
         #region Ctor
@@ -58,9 +70,33 @@ namespace Events.ViewModels
 
             Collections.events = _events;
 
-           
+            SetPieChart();
+
+        }
+
+        private void SetPieChart()
+        {
+            _seriesCollection = new SeriesCollection { };
+            foreach (var item in _events
+                .GroupBy(x => x.IPAddress)
+                .Select(group => new {
+                    Metric = group.Key,
+                    Count = group.Count(),
+                    Items = group.ToList(),
+                 })
+                .OrderBy(x => x.Metric))
+            {
 
 
+                _seriesCollection.Add(new PieSeries()
+                {
+                    Title = item.Metric,
+                    Values = new ChartValues<int>( new[] { item.Count } ),
+                    DataLabels = true,
+                });;
+            }
+
+          
         }
 
         private void _events_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
