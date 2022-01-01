@@ -9,42 +9,55 @@ using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace NetworkDashboard.ViewModels
 {
     public class NetworkDashboardViewModel : BindableBase, INavigationAware
     {
 
-        private readonly IFileService<NetworkComponents> _fileService;
+        private readonly IFileService<NetworkComponent> _fileService;
         private readonly IDialogService _dialogService;
 
-        public DelegateCommand<NetworkComponents> ClickCmd { get; private set; }
+        public DelegateCommand<NetworkComponent> ClickCmd { get; private set; }
 
         public DelegateCommand<string> OrderByCmd { get; private set; }
 
-        private ObservableCollection<NetworkComponents> _networkComponents;
-        public ObservableCollection<NetworkComponents> NetworkComponents
+        private ObservableCollection<NetworkComponent> _networkComponents;
+        public ObservableCollection<NetworkComponent> NetworkComponents
         {
             get { return _networkComponents; }
             set { SetProperty(ref _networkComponents, value); }
         }
 
-        private NetworkComponents _selectedItem;
-        public NetworkComponents SelectedItem
+        //private NetworkComponent _selectedItem;
+        //public NetworkComponent SelectedItem
+        //{
+        //    get { return _selectedItem; }
+        //    set { SetProperty(ref _selectedItem, value); }
+        //}
+
+        ///
+        public ICollectionView NetworkComponentCollectionView { get; }
+        private string _employeesFilter = string.Empty;
+        public string NetworkComponentFilter
         {
-            get { return _selectedItem; }
-            set { SetProperty(ref _selectedItem, value); }
+            get { return _employeesFilter; }
+            set { SetProperty(ref _employeesFilter, value); }
         }
+        
 
-        public NetworkDashboardViewModel(IFileService<NetworkComponents> fileService, IDialogService dialogService, EventsViewModel vm)
+
+        public NetworkDashboardViewModel(IFileService<NetworkComponent> fileService, IDialogService dialogService, EventsViewModel vm)
         {
 
-            ClickCmd = new DelegateCommand<NetworkComponents>(ClickExecute);
+            ClickCmd = new DelegateCommand<NetworkComponent>(ClickExecute);
 
             OrderByCmd = new DelegateCommand<string>(OrderByExecute);
 
@@ -53,18 +66,43 @@ namespace NetworkDashboard.ViewModels
             _dialogService = dialogService;
 
         
-            _networkComponents = new ObservableCollection<NetworkComponents>
+            _networkComponents = new ObservableCollection<NetworkComponent>
                 (_fileService.ProcessReadAsync(Paths.NetworkComponentsPath)
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
 
-          
+     
+
+
 
             Collections.networkComponents = _networkComponents;
 
             _networkComponents.CollectionChanged += _networkComponents_CollectionChanged;
+
+            ////
           
+            NetworkComponentCollectionView = CollectionViewSource.GetDefaultView(_networkComponents);
+            NetworkComponentCollectionView.Filter = FilterNetworkComponent;
+          //  EmployeesCollectionView.GroupDescriptions.Add(new PropertyGroupDescription(nameof(NetworkComponent.IPAddress)));
+            //EmployeesCollectionView.SortDescriptions.Add(new SortDescription(nameof(NetworkComponents.Name), ListSortDirection.Ascending));
+            ///
+
+
         }
+
+
+        private bool FilterNetworkComponent(object obj)
+        {
+            if (obj is NetworkComponent employeeViewModel)
+            {
+                return employeeViewModel.IPAddress.Contains(NetworkComponentFilter, StringComparison.InvariantCultureIgnoreCase);
+                    
+            }
+
+            return false;
+        }
+
+        //
 
         private void _networkComponents_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
@@ -77,16 +115,16 @@ namespace NetworkDashboard.ViewModels
             //TOOD: NOT HARD CODED NAMES
             if(headerName == "ID")
             {
-                NetworkComponents = new ObservableCollection<NetworkComponents>(NetworkComponents.OrderBy(x => x.ID));
+                NetworkComponents = new ObservableCollection<NetworkComponent>(NetworkComponents.OrderBy(x => x.ID));
             }
             else if (headerName == "IP Address")
             {
-                NetworkComponents = new ObservableCollection<NetworkComponents>(NetworkComponents.OrderBy(x => x.IPAddress));
+                NetworkComponents = new ObservableCollection<NetworkComponent>(NetworkComponents.OrderBy(x => x.IPAddress));
             }
 
         }
 
-        private void ClickExecute(NetworkComponents networkComponents)
+        private void ClickExecute(NetworkComponent networkComponents)
         {
             //throw new NotImplementedException();
             var dialogParameters = new DialogParameters

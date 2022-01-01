@@ -11,11 +11,11 @@ namespace Nelysis.Test
     [TestClass]
     public class UnitTest1
     {
-        IFileService<NetworkComponents> _IFileService;
+        IFileService<NetworkComponent> _IFileService;
 
         public UnitTest1()
         {
-            _IFileService = new FileService<NetworkComponents>();
+            _IFileService = new FileService<NetworkComponent>();
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Nelysis.Test
         public void TestUpdateNetworkAsync()
         {
             var data = new List<string>() { "21", "192.168.1.401", "18:60:24:97:CE:06", "8", "HPI5DT", "2012", "4348823136312" };
-            NetworkComponents NetworkComponents = NetworkComponents.Init(data);
+            NetworkComponent NetworkComponents = NetworkComponent.Init(data);
 
             Task
             .Run(() => _IFileService.ModifyNetworkComponentTempFileAsync(NetworkComponents))

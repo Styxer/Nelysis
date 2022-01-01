@@ -10,7 +10,7 @@ namespace Nelysis.Popup
 {
     public class NotificationDialogViewModel : BindableBase, IDialogAware
     {
-        private readonly IFileService<NetworkComponents> _fileService;
+        private readonly IFileService<NetworkComponent> _fileService;
 
         #region Commands
         private DelegateCommand<string> _closeDialogCommand;
@@ -20,8 +20,8 @@ namespace Nelysis.Popup
         #endregion
 
         #region Props
-        private NetworkComponents _networkComponents;
-        public NetworkComponents NetworkComponents
+        private NetworkComponent _networkComponents;
+        public NetworkComponent NetworkComponents
         {
             get { return _networkComponents; }
             set { SetProperty(ref _networkComponents, value); }
@@ -40,7 +40,7 @@ namespace Nelysis.Popup
         #endregion
 
         #region Ctor
-        public NotificationDialogViewModel(IFileService<NetworkComponents> fileService)
+        public NotificationDialogViewModel(IFileService<NetworkComponent> fileService)
         {
             _fileService = fileService;
         }
@@ -81,7 +81,7 @@ namespace Nelysis.Popup
 
         public virtual void OnDialogOpened(IDialogParameters parameters)
         {
-            NetworkComponents = parameters.GetValue<NetworkComponents>("message");
+            NetworkComponents = parameters.GetValue<NetworkComponent>("message");
         }
     }
 }

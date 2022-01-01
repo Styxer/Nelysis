@@ -29,7 +29,7 @@
     </UserControl.Resources>
 
     <Border BorderThickness="2">
-        <ListView ItemsSource="{Binding NetworkComponents}"
+        <ListView ItemsSource="{Binding NetworkComponentCollectionView}"
                   AlternationCount="2"
                   SelectionMode="Single"
                   SelectedItem="{Binding SelectedItem}"

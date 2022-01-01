@@ -93,6 +93,7 @@ namespace Events.ViewModels
                     Title = item.Metric,
                     Values = new ChartValues<int>( new[] { item.Count } ),
                     DataLabels = true,
+                    
                 });;
             }
 

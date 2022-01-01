@@ -34,7 +34,7 @@ namespace Nelysis.Services
             var inputFilePaths = new DirectoryInfo(Paths.TempDataFolder)
                 .GetFiles()
                 .OrderBy(x => x.CreationTime);
-            var path = typeof(T) == typeof(NetworkComponents) ? Paths.NetworkComponentsPath : Paths.EventsPath;
+            var path = typeof(T) == typeof(NetworkComponent) ? Paths.NetworkComponentsPath : Paths.EventsPath;
             using (var outputStream = File.Create(path))
             {
                 foreach (var inputFilePath in inputFilePaths)
@@ -118,8 +118,8 @@ namespace Nelysis.Services
                             } 
                         }
 
-                        yield return typeof(T) == typeof(NetworkComponents) ?
-                            (T)Convert.ChangeType(NetworkComponents.Init(splitted), typeof(T)) :
+                        yield return typeof(T) == typeof(NetworkComponent) ?
+                            (T)Convert.ChangeType(NetworkComponent.Init(splitted), typeof(T)) :
                             (T)Convert.ChangeType(Event.Init(splitted), typeof(T));
                     }
                     toChunkNum = counter++;

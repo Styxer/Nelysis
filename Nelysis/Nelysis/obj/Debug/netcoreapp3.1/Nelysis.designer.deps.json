@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "DryIoc.dll/4.5.0": {
+      "DryIoc.dll/4.7.7": {
         "dependencies": {
           "System.Reflection.Emit.Lightweight": "4.3.0"
         },
         "runtime": {
           "lib/netstandard2.0/DryIoc.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.5.0.0"
+            "assemblyVersion": "4.7.7.0",
+            "fileVersion": "4.7.7.0"
           }
         }
       },
@@ -48,6 +48,25 @@
           "lib/netcoreapp3.1/LiveCharts.dll": {
             "assemblyVersion": "0.9.7.0",
             "fileVersion": "0.9.7.0"
+          }
+        }
+      },
+      "MaterialDesignColors/2.0.4": {
+        "runtime": {
+          "lib/netcoreapp3.1/MaterialDesignColors.dll": {
+            "assemblyVersion": "2.0.4.3",
+            "fileVersion": "2.0.4.3"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.3.0": {
+        "dependencies": {
+          "MaterialDesignColors": "2.0.4"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "4.3.0.3",
+            "fileVersion": "4.3.0.3"
           }
         }
       },
@@ -165,15 +184,15 @@
           }
         }
       },
-      "Prism.DryIoc/8.0.0.1909": {
+      "Prism.DryIoc/8.1.97": {
         "dependencies": {
-          "DryIoc.dll": "4.5.0",
+          "DryIoc.dll": "4.7.7",
           "Prism.Wpf": "8.1.97"
         },
         "runtime": {
           "lib/netcoreapp3.1/Prism.DryIoc.Wpf.dll": {
-            "assemblyVersion": "8.0.0.1909",
-            "fileVersion": "8.0.0.1909"
+            "assemblyVersion": "8.1.97.5141",
+            "fileVersion": "8.1.97.5141"
           }
         }
       },
@@ -288,12 +307,12 @@
     }
   },
   "libraries": {
-    "DryIoc.dll/4.5.0": {
+    "DryIoc.dll/4.7.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FMwI/UHyc8utEwInluduwVcdYEocbuAtNjW2bCAdWnhYsaIhlIihotDh5PYoyUn/Ms4+U7QbGdE2MwR3wzxQgg==",
-      "path": "dryioc.dll/4.5.0",
-      "hashPath": "dryioc.dll.4.5.0.nupkg.sha512"
+      "sha512": "sha512-GC2JdW0mN3wTcbcteP7LWwfU1eao0If/vMozCXSbcNZbHQD7kBjcKFO82g0OLssr7gGPWS4+vWpNZ1oOy54JKw==",
+      "path": "dryioc.dll/4.7.7",
+      "hashPath": "dryioc.dll.4.7.7.nupkg.sha512"
     },
     "LiveCharts/0.9.7": {
       "type": "package",
@@ -315,6 +334,20 @@
       "sha512": "sha512-d0HkmjLi+HifeXyD+E14aOMPDRmwkkiqPYW4GDbUS8Z1m6eQPGCShcDcbWwP4tBoWzGEkkSsy+XSHvaoW50b0Q==",
       "path": "livecharts.wpf.netcore3/0.9.7",
       "hashPath": "livecharts.wpf.netcore3.0.9.7.nupkg.sha512"
+    },
+    "MaterialDesignColors/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l8LfghYjT2mBVp28CAU8UN4GQ6T/euzgGiTwFKy1DPUG8c5rng/CVXXqM5Xof0XAm0MhXgV8yjGRjQ7KOjT/Iw==",
+      "path": "materialdesigncolors/2.0.4",
+      "hashPath": "materialdesigncolors.2.0.4.nupkg.sha512"
+    },
+    "MaterialDesignThemes/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-edXh0Hl2LukyEZN+REVFuN+gaaUFo6AfHSaBjuZ95k4Qz1TljcxnfCznMKkGaQoEsy5ryk85ZbeRY/tOzFmKxg==",
+      "path": "materialdesignthemes/4.3.0",
+      "hashPath": "materialdesignthemes.4.3.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -407,12 +440,12 @@
       "path": "prism.core/8.1.97",
       "hashPath": "prism.core.8.1.97.nupkg.sha512"
     },
-    "Prism.DryIoc/8.0.0.1909": {
+    "Prism.DryIoc/8.1.97": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6o6saaXGSEso4xl2F2x5joOOzkSy01osdR9pPoTeXNQTRKIl+tso/4afxQ2ftH75oqfdZGTzjuS5kLgmBKl8ng==",
-      "path": "prism.dryioc/8.0.0.1909",
-      "hashPath": "prism.dryioc.8.0.0.1909.nupkg.sha512"
+      "sha512": "sha512-8hdeAoZ+x1eBNIg+nMzox01uGUR4HnbCCR1iClNKwDfCWQ4ZtjEjsyeTXHcXKtG45xXqiERmJVew5tJmCdVPWw==",
+      "path": "prism.dryioc/8.1.97",
+      "hashPath": "prism.dryioc.8.1.97.nupkg.sha512"
     },
     "Prism.Wpf/8.1.97": {
       "type": "package",

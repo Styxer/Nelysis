@@ -5,7 +5,10 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:core="clr-namespace:Nelysis.Core;assembly=Nelysis.Core"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="{Binding Title}" Height="600" Width="800" >
+
+   
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
@@ -18,17 +21,37 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
 
-        <StackPanel Grid.Row="0"
+
+        <StackPanel Orientation="Horizontal">
+            
+            <StackPanel
+                Grid.Row="0"
                      Orientation="Vertical"
                     HorizontalAlignment="Stretch">
-            <RadioButton Content="Components Types"
-                         Command="{Binding ChangeScreenCmd}" 
-                         CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=Content}"
-                         IsChecked="True"/>
-            <RadioButton Content="Events"
-                         Command="{Binding ChangeScreenCmd}"
-                         CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=Content}"/>
+                <RadioButton Content="Network components"
+                         Command="{Binding ChangeScreenCmd}"                          
+                         IsChecked="{Binding NetworkComponentsScreen, Mode=TwoWay}"/>
+                <RadioButton Content="Events"
+                         Command="{Binding ChangeScreenCmd}"                         
+                         IsChecked="{Binding EvetsScreen, Mode=TwoWay}"/>
+
+            </StackPanel>
+            <Separator Margin="50 0"/>
+            <TextBox
+                 x:Name="searchBox"
+                  materialDesign:HintAssist.Hint="Search"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                  VerticalAlignment="Stretch" />
+            <Button Margin="10 0 0 0"
+              Style="{StaticResource MaterialDesignPaperButton}"
+              VerticalAlignment="Stretch"
+              ToolTip="Resource name: MaterialDesignPaperButton"
+              Content="Go"
+              Command="{Binding SearchCmd}" CommandParameter="{Binding ElementName=searchBox, Path=Text}"/>
+
+            
         </StackPanel>
                     
 

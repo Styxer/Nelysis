@@ -1,10 +1,12 @@
-﻿using Events;
+﻿using DryIoc;
+using Events;
 using Nelysis.Core.Models;
 using Nelysis.Popup;
 using Nelysis.Services;
 using Nelysis.Services.Interfaces;
 using Nelysis.Views;
 using NetworkDashboard;
+using NetworkDashboard.ViewModels;
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
@@ -24,10 +26,12 @@ namespace Nelysis
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
-            containerRegistry.RegisterSingleton<IFileService<NetworkComponents>, FileService<NetworkComponents>>();
+            containerRegistry.RegisterSingleton<IFileService<NetworkComponent>, FileService<NetworkComponent>>();
             containerRegistry.RegisterSingleton<IFileService<Event>, FileService<Event>>();
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
+
+            containerRegistry.RegisterSingleton(typeof(NetworkDashboardViewModel));
 
         }
 

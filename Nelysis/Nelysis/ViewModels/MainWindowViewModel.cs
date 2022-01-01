@@ -1,9 +1,13 @@
 ﻿using Nelysis.Core;
 using Nelysis.Core.Models;
+using NetworkDashboard.ViewModels;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using System;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Data;
 
 namespace Nelysis.ViewModels
 {
@@ -12,7 +16,13 @@ namespace Nelysis.ViewModels
         #region Cmd
         public DelegateCommand ClosingCmd { get; private set; }
 
-        public DelegateCommand<string> ChangeScreenCmd { get; private set; }
+        public DelegateCommand ChangeScreenCmd { get; private set; }
+
+        public DelegateCommand<string> SearchCmd { get; private set; }
+        #endregion
+
+        #region Private Properties
+        private string _selectedRegion; //TODO: NOT LIKE THIs
         #endregion
 
         #region Properties
@@ -22,6 +32,24 @@ namespace Nelysis.ViewModels
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
+
+        private bool _networkComponentsScreen;
+        public bool NetworkComponentsScreen
+        {
+            get { return _networkComponentsScreen; }
+            set { SetProperty(ref _networkComponentsScreen, value); }
+        }
+
+        private bool _evetsScreen;
+        public bool EvetsScreen
+        {
+            get { return _evetsScreen; }
+            set { SetProperty(ref _evetsScreen, value); }
+        }
+
+        private readonly NetworkDashboardViewModel _vm;
+      
+        
         #endregion
 
         #region Services
@@ -29,37 +57,63 @@ namespace Nelysis.ViewModels
         #endregion
 
         #region Ctor
-        public MainWindowViewModel(IRegionManager regionManager)
+        public MainWindowViewModel(IRegionManager regionManager, NetworkDashboardViewModel vm)
         {
+
+
             ClosingCmd = new DelegateCommand(ClosingExecute);
-            ChangeScreenCmd = new DelegateCommand<string>(ChangeScreenExecute);
+            ChangeScreenCmd = new DelegateCommand(ChangeScreenExecute);
+            SearchCmd = new DelegateCommand<string>(SearchExecute);
+
+
             _regionManager = regionManager;
+            _networkComponentsScreen = true;
+            _vm = vm;
+            //cv = CollectionViewSource.GetDefaultView(_vm);
+            //cv.Filter = Filterr;
         }
+
+       
+
+
 
         #endregion
         #region Command Imp.
-        private void ChangeScreenExecute(string screenName)
+        private void ChangeScreenExecute()
         {
-            //TODO: REMOVE HARD CODED
-            if (screenName == "Components Types")
+           
+            
+            if (_networkComponentsScreen)
             {
-                _regionManager.RequestNavigate(RegionNames.ContentRegion, "NetworkDashboardView", NavigationCompleted);
+                _regionManager.RequestNavigate(RegionNames.ContentRegion, "NetworkDashboardView");
             }
-            else if (screenName == "Events")
+            else if (_evetsScreen)
             {
-                _regionManager.RequestNavigate(RegionNames.ContentRegion, "EventsView", NavigationCompleted);
+                _regionManager.RequestNavigate(RegionNames.ContentRegion, "EventsView");
             }
         }
 
-        private void NavigationCompleted(NavigationResult obj)
-        {
-            System.Diagnostics.Debug.WriteLine(obj.Error);
-        }
+       
 
         private void ClosingExecute()
         {
             //TODO: Delete temp folder?
-        } 
+        }
+
+        private void SearchExecute(string str)
+        {
+
+            if (_networkComponentsScreen)
+            {
+                _vm.NetworkComponentFilter = "100";
+                
+            }
+            else if (_evetsScreen)
+            {
+               
+            }
+        }
+
         #endregion
     }
 }

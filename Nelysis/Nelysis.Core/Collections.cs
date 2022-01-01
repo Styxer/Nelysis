@@ -8,7 +8,7 @@ namespace Nelysis.Core
 {
     public static class Collections
     {
-        public static ObservableCollection<NetworkComponents> networkComponents;
+        public static ObservableCollection<NetworkComponent> networkComponents;
 
         public static ObservableCollection<Event> events;
     }
