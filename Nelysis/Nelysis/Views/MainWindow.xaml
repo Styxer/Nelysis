@@ -40,18 +40,15 @@
             </StackPanel>
             <Separator Margin="50 0"/>
             <TextBox
-                 x:Name="searchBox"
+                 Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" 
+                  MinWidth="100"
+                  x:Name="searchBox"
                   materialDesign:HintAssist.Hint="Search"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                  VerticalAlignment="Stretch" />
-            <Button Margin="10 0 0 0"
-              Style="{StaticResource MaterialDesignPaperButton}"
-              VerticalAlignment="Stretch"
-              ToolTip="Resource name: MaterialDesignPaperButton"
-              Content="Go"
-              Command="{Binding SearchCmd}" CommandParameter="{Binding ElementName=searchBox, Path=Text}"/>
+                  />
+         
 
-            
+
         </StackPanel>
                     
 

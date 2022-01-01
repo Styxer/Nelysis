@@ -50,11 +50,11 @@ namespace NetworkDashboard.ViewModels
 
         ///
         public ICollectionView NetworkComponentCollectionView { get; }
-        private string _employeesFilter = string.Empty;
+        private string _networkComponentFilter = string.Empty;
         public string NetworkComponentFilter
         {
-            get { return _employeesFilter; }
-            set { SetProperty(ref _employeesFilter, value); }
+            get { return _networkComponentFilter; }
+            set { SetProperty(ref _networkComponentFilter, value); NetworkComponentCollectionView.Refresh(); }
         }
 
         #endregion
@@ -88,18 +88,21 @@ namespace NetworkDashboard.ViewModels
 
             NetworkComponentCollectionView = CollectionViewSource.GetDefaultView(_networkComponents);
             NetworkComponentCollectionView.Filter = FilterNetworkComponent;
-            //  EmployeesCollectionView.GroupDescriptions.Add(new PropertyGroupDescription(nameof(NetworkComponent.IPAddress)));
-            //EmployeesCollectionView.SortDescriptions.Add(new SortDescription(nameof(NetworkComponents.Name), ListSortDirection.Ascending));           ///
+     
 
         } 
         #endregion
 
+        ~NetworkDashboardViewModel()
+        {
+            _networkComponents.CollectionChanged -= _networkComponents_CollectionChanged;
+        }
 
         private bool FilterNetworkComponent(object obj)
         {
-            if (obj is NetworkComponent employeeViewModel)
+            if (obj is NetworkComponent networkComponent)
             {
-                return employeeViewModel.IPAddress.Contains(NetworkComponentFilter, StringComparison.InvariantCultureIgnoreCase);
+                return networkComponent.IPAddress.Contains(NetworkComponentFilter, StringComparison.InvariantCultureIgnoreCase);
                     
             }
 

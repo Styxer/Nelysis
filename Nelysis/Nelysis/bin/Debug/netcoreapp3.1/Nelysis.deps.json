@@ -31,28 +31,19 @@
           }
         }
       },
-      "LiveCharts/0.9.7": {
-        "runtime": {
-          "lib/net45/LiveCharts.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
-      "LiveCharts.Wpf/0.9.7": {
-        "dependencies": {
-          "LiveCharts": "0.9.7"
-        },
-        "runtime": {
-          "lib/net45/LiveCharts.Wpf.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
       "LiveCharts.Wpf.NetCore3/0.9.7": {
         "dependencies": {
           "System.Data.DataSetExtensions": "4.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/LiveCharts.Wpf.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          },
+          "lib/netcoreapp3.1/LiveCharts.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          }
         }
       },
       "MaterialDesignColors/2.0.4": {
@@ -291,7 +282,6 @@
       },
       "Events/1.0.0": {
         "dependencies": {
-          "LiveCharts.Wpf": "0.9.7",
           "LiveCharts.Wpf.NetCore3": "0.9.7",
           "Nelysis.Core": "1.0.0",
           "Nelysis.Services.Interfaces": "1.0.0",
@@ -354,20 +344,6 @@
       "sha512": "sha512-GC2JdW0mN3wTcbcteP7LWwfU1eao0If/vMozCXSbcNZbHQD7kBjcKFO82g0OLssr7gGPWS4+vWpNZ1oOy54JKw==",
       "path": "dryioc.dll/4.7.7",
       "hashPath": "dryioc.dll.4.7.7.nupkg.sha512"
-    },
-    "LiveCharts/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
-      "path": "livecharts/0.9.7",
-      "hashPath": "livecharts.0.9.7.nupkg.sha512"
-    },
-    "LiveCharts.Wpf/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
-      "path": "livecharts.wpf/0.9.7",
-      "hashPath": "livecharts.wpf.0.9.7.nupkg.sha512"
     },
     "LiveCharts.Wpf.NetCore3/0.9.7": {
       "type": "package",

@@ -1,4 +1,5 @@
-﻿using Nelysis.Core;
+﻿using Events.ViewModels;
+using Nelysis.Core;
 using Nelysis.Core.Models;
 using NetworkDashboard.ViewModels;
 using Prism.Commands;
@@ -18,11 +19,11 @@ namespace Nelysis.ViewModels
 
         public DelegateCommand ChangeScreenCmd { get; private set; }
 
-        public DelegateCommand<string> SearchCmd { get; private set; }
+       
         #endregion
 
         #region Private Properties
-        private string _selectedRegion; //TODO: NOT LIKE THIs
+       
         #endregion
 
         #region Properties
@@ -47,9 +48,29 @@ namespace Nelysis.ViewModels
             set { SetProperty(ref _evetsScreen, value); }
         }
 
-        private readonly NetworkDashboardViewModel _vm;
-      
-        
+        private string _filter;
+        public string Filter
+        {
+            get { return _filter; }
+            set
+            { 
+                SetProperty(ref _filter, value);
+                if (_networkComponentsScreen)
+                {
+                    _networkDashboardVM.NetworkComponentFilter = value;
+
+                }
+                else if (_evetsScreen)
+                {
+                    _eventsVM.EventFilter = value;
+                }
+
+            }
+        }
+
+        private readonly NetworkDashboardViewModel _networkDashboardVM;
+        private readonly EventsViewModel _eventsVM;
+
         #endregion
 
         #region Services
@@ -57,32 +78,28 @@ namespace Nelysis.ViewModels
         #endregion
 
         #region Ctor
-        public MainWindowViewModel(IRegionManager regionManager, NetworkDashboardViewModel vm)
+        public MainWindowViewModel(IRegionManager regionManager, NetworkDashboardViewModel networkDashboardVM, EventsViewModel eventsVM)
         {
 
 
             ClosingCmd = new DelegateCommand(ClosingExecute);
             ChangeScreenCmd = new DelegateCommand(ChangeScreenExecute);
-            SearchCmd = new DelegateCommand<string>(SearchExecute);
+            
 
 
             _regionManager = regionManager;
             _networkComponentsScreen = true;
-            _vm = vm;
-            //cv = CollectionViewSource.GetDefaultView(_vm);
-            //cv.Filter = Filterr;
+            _networkDashboardVM = networkDashboardVM;
+            _eventsVM = eventsVM;
+
+
         }
-
-       
-
-
 
         #endregion
         #region Command Imp.
         private void ChangeScreenExecute()
-        {
+        {          
            
-            
             if (_networkComponentsScreen)
             {
                 _regionManager.RequestNavigate(RegionNames.ContentRegion, "NetworkDashboardView");
@@ -93,26 +110,13 @@ namespace Nelysis.ViewModels
             }
         }
 
-       
 
         private void ClosingExecute()
         {
             //TODO: Delete temp folder?
         }
 
-        private void SearchExecute(string str)
-        {
-
-            if (_networkComponentsScreen)
-            {
-                _vm.NetworkComponentFilter = "100";
-                
-            }
-            else if (_evetsScreen)
-            {
-               
-            }
-        }
+     
 
         #endregion
     }

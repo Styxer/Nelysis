@@ -1,5 +1,6 @@
 ﻿using DryIoc;
 using Events;
+using Events.ViewModels;
 using Nelysis.Core.Models;
 using Nelysis.Popup;
 using Nelysis.Services;
@@ -32,6 +33,7 @@ namespace Nelysis
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
 
             containerRegistry.RegisterSingleton(typeof(NetworkDashboardViewModel));
+            containerRegistry.RegisterSingleton(typeof(EventsViewModel));
 
         }
 

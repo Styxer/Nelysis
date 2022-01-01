@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using Nelysis.Core;
 using Nelysis.Core.Models;
+using Nelysis.Core.Mvvm;
 using Nelysis.Services.Interfaces;
 
 using Prism.Commands;
@@ -10,14 +11,16 @@ using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Shapes;
 
 namespace Events.ViewModels
 {
-    public class EventsViewModel : BindableBase , INavigationAware
+    public class EventsViewModel : RegionViewModelBase
     {
         #region Services
         private readonly IFileService<Event> _fileService;       
@@ -50,12 +53,19 @@ namespace Events.ViewModels
             set { SetProperty(ref _seriesCollection, value); }
         }
 
-     
+        public ICollectionView EventCollectionView { get; }
+        private string _eventFilter = string.Empty;
+        public string EventFilter
+        {
+            get { return _eventFilter; }
+            set { SetProperty(ref _eventFilter, value); EventCollectionView.Refresh(); }
+        }
 
         #endregion      
 
         #region Ctor
-        public EventsViewModel(IFileService<Event> fileService)
+        public EventsViewModel(IRegionManager regionManager, IFileService<Event> fileService)
+            : base(regionManager)
         {
             _fileService = fileService;
 
@@ -72,6 +82,14 @@ namespace Events.ViewModels
 
             SetPieChart();
 
+            EventCollectionView = CollectionViewSource.GetDefaultView(_events);
+            EventCollectionView.Filter = FilterEvent;
+
+        }
+
+        ~EventsViewModel()
+        {
+            _events.CollectionChanged -= _events_CollectionChanged;
         }
 
         private void SetPieChart()
@@ -95,9 +113,18 @@ namespace Events.ViewModels
                     DataLabels = true,
                     
                 });;
+            }          
+        }
+
+        private bool FilterEvent(object obj)
+        {
+            if (obj is Event @event)
+            {
+                return @event.IPAddress.Contains(EventFilter, StringComparison.InvariantCultureIgnoreCase);
+
             }
 
-          
+            return false;
         }
 
         private void _events_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -117,7 +144,7 @@ namespace Events.ViewModels
 
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public override void OnNavigatedTo(NavigationContext navigationContext)
         {          
             for (int i = 0; i < Collections.networkComponents.Count(); i++)
             {
@@ -125,15 +152,7 @@ namespace Events.ViewModels
             }
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-           
-        }
+       
 
         #endregion
     }

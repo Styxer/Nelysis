@@ -53,10 +53,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "LiveCharts.Wpf": {
-              "target": "Package",
-              "version": "[0.9.7, )"
-            },
             "LiveCharts.Wpf.NetCore3": {
               "target": "Package",
               "version": "[0.9.7, )"
