@@ -34,10 +34,10 @@
                   SelectionMode="Single"
                   SelectedItem="{Binding SelectedItem}"
                   ItemContainerStyle="{DynamicResource CustomListViewItemStyle}">
-
+            <!--CommandParameter="{Binding SelectedItem}"-->
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
-                    <prism:InvokeCommandAction Command="{Binding ClickCmd}" CommandParameter="{Binding SelectedItem}"/>
+                    <prism:InvokeCommandAction Command="{Binding ClickCmd}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
            

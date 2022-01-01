@@ -1,6 +1,7 @@
 ﻿using Events.ViewModels;
 using Nelysis.Core;
 using Nelysis.Core.Models;
+using Nelysis.Core.Mvvm;
 using Nelysis.Services.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -19,16 +20,20 @@ using System.Windows.Data;
 
 namespace NetworkDashboard.ViewModels
 {
-    public class NetworkDashboardViewModel : BindableBase, INavigationAware
+    public class NetworkDashboardViewModel : RegionViewModelBase
     {
 
+        #region Services
         private readonly IFileService<NetworkComponent> _fileService;
         private readonly IDialogService _dialogService;
+        #endregion
 
-        public DelegateCommand<NetworkComponent> ClickCmd { get; private set; }
-
+        #region Commands
+        public DelegateCommand ClickCmd { get; private set; }
         public DelegateCommand<string> OrderByCmd { get; private set; }
+        #endregion
 
+        #region Properties
         private ObservableCollection<NetworkComponent> _networkComponents;
         public ObservableCollection<NetworkComponent> NetworkComponents
         {
@@ -36,12 +41,12 @@ namespace NetworkDashboard.ViewModels
             set { SetProperty(ref _networkComponents, value); }
         }
 
-        //private NetworkComponent _selectedItem;
-        //public NetworkComponent SelectedItem
-        //{
-        //    get { return _selectedItem; }
-        //    set { SetProperty(ref _selectedItem, value); }
-        //}
+        private NetworkComponent _selectedItem;
+        public NetworkComponent SelectedItem
+        {
+            get { return _selectedItem; }
+            set { SetProperty(ref _selectedItem, value); }
+        }       
 
         ///
         public ICollectionView NetworkComponentCollectionView { get; }
@@ -51,44 +56,43 @@ namespace NetworkDashboard.ViewModels
             get { return _employeesFilter; }
             set { SetProperty(ref _employeesFilter, value); }
         }
-        
 
+        #endregion
 
-        public NetworkDashboardViewModel(IFileService<NetworkComponent> fileService, IDialogService dialogService, EventsViewModel vm)
+        #region private props
+        private readonly EventsViewModel _vm;
+        #endregion
+
+        #region Ctor
+        public NetworkDashboardViewModel(IRegionManager regionManager, IFileService<NetworkComponent> fileService, IDialogService dialogService, EventsViewModel vm)
+           : base(regionManager)
         {
 
-            ClickCmd = new DelegateCommand<NetworkComponent>(ClickExecute);
-
+            ClickCmd = new DelegateCommand(ClickExecute);
             OrderByCmd = new DelegateCommand<string>(OrderByExecute);
-
 
             _fileService = fileService;
             _dialogService = dialogService;
 
-        
+
             _networkComponents = new ObservableCollection<NetworkComponent>
                 (_fileService.ProcessReadAsync(Paths.NetworkComponentsPath)
                .OrderBy(x => x.TotalDayThroughput));
             _dialogService = dialogService;
 
-     
-
-
+            _vm = vm;
 
             Collections.networkComponents = _networkComponents;
 
             _networkComponents.CollectionChanged += _networkComponents_CollectionChanged;
 
-            ////
-          
             NetworkComponentCollectionView = CollectionViewSource.GetDefaultView(_networkComponents);
             NetworkComponentCollectionView.Filter = FilterNetworkComponent;
-          //  EmployeesCollectionView.GroupDescriptions.Add(new PropertyGroupDescription(nameof(NetworkComponent.IPAddress)));
-            //EmployeesCollectionView.SortDescriptions.Add(new SortDescription(nameof(NetworkComponents.Name), ListSortDirection.Ascending));
-            ///
+            //  EmployeesCollectionView.GroupDescriptions.Add(new PropertyGroupDescription(nameof(NetworkComponent.IPAddress)));
+            //EmployeesCollectionView.SortDescriptions.Add(new SortDescription(nameof(NetworkComponents.Name), ListSortDirection.Ascending));           ///
 
-
-        }
+        } 
+        #endregion
 
 
         private bool FilterNetworkComponent(object obj)
@@ -124,12 +128,12 @@ namespace NetworkDashboard.ViewModels
 
         }
 
-        private void ClickExecute(NetworkComponent networkComponents)
+        private void ClickExecute()
         {
             //throw new NotImplementedException();
             var dialogParameters = new DialogParameters
             {
-               {"message", networkComponents}
+               {"message", _selectedItem}
             };
             _dialogService.ShowDialog("NotificationDialog", dialogParameters, r =>
             {
@@ -140,46 +144,21 @@ namespace NetworkDashboard.ViewModels
                 else
                 {
 
-                }
-                //if (r.Result == ButtonResult.None)
-                //   // Title = "Result is None";
-                //else if (r.Result == ButtonResult.OK)
-                //   // Title = "Result is OK";
-                //else if (r.Result == ButtonResult.Cancel)
-                //    Title = "Result is Cancel";
-                //else
-                //    Title = "I Don't know what you did!?";
+                }               
             });
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             //TODO: BETTER SOLUTION
             foreach (var networkComponent in _networkComponents)
             {
-                var targetEvents = Collections.events.Where(x => x.IPAddress == networkComponent.IPAddress && x.MAC == networkComponent.MAC);
+                var targetEvents = _vm.Events.Where(x => x.IPAddress == networkComponent.IPAddress && x.MAC == networkComponent.MAC);
                 foreach (var item in targetEvents)
                 {
                     networkComponent.HasRelatedEvent = true;
                 }
             }
-        }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-            
-        }
-
-
-
-        //public ViewAViewModel()
-        //{
-        //    
-        //}
+        }        
     }
 }

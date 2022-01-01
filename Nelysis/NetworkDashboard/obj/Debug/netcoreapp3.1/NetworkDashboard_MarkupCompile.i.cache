@@ -16,5 +16,5 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 200-75356552
 Styles\ListViewItemStyle.xaml;Views\NetworkDashboardView.xaml;
 
-False
+True
 
